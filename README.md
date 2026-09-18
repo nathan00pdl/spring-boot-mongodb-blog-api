@@ -18,7 +18,7 @@ Built while following the Udemy course *"COMPLETE Java 2023 Object-Oriented Prog
 
 ## Document model
 
-<img src="docs/document-model.svg" alt="Document model: User and Post as collections; AuthorDTO and CommentDTO embedded inside the post." width="880">
+<a href="docs/document-model.svg"><img src="docs/document-model.svg" alt="Document model: User and Post as collections; AuthorDTO and CommentDTO embedded inside the post." width="880"></a>
 
 Only **`User`** and **`Post`** are collections. Everything in gray is stored *inside* a post document:
 
@@ -70,7 +70,7 @@ The API starts on `http://localhost:8080` against the `workshop_mongo` database,
 
 ## Diagrams
 
-The diagram is generated from the Mermaid source in `docs/`, so it stays editable text rather than a binary image:
+Click a diagram to open it at full size. The diagram is generated from the Mermaid source in `docs/`, so it stays editable text rather than a binary image:
 
 ```bash
 npx @mermaid-js/mermaid-cli -i docs/document-model.mmd -o docs/document-model.svg -t default -b white -c docs/mermaid-config.json
