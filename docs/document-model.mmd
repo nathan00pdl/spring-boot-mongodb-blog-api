@@ -1,0 +1,31 @@
+classDiagram
+    direction LR
+    class User {
+        +String id
+        +String name
+        +String email
+    }
+    class Post {
+        +String id
+        +Date date
+        +String title
+        +String body
+    }
+    class AuthorDTO {
+        +String id
+        +String name
+    }
+    class CommentDTO {
+        +String text
+        +Date date
+    }
+
+    User "1" --> "*" Post : writes
+    Post "1" *-- "*" CommentDTO : embedded comments
+    Post "1" --> "1" AuthorDTO : embedded author
+    CommentDTO "1" --> "1" AuthorDTO : embedded author
+
+    style User fill:#FFFFCC,stroke:#333333,color:#000000
+    style Post fill:#FFFFCC,stroke:#333333,color:#000000
+    style AuthorDTO fill:#E8E8E8,stroke:#333333,color:#000000
+    style CommentDTO fill:#E8E8E8,stroke:#333333,color:#000000
