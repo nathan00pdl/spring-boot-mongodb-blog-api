@@ -14,12 +14,10 @@ import com.MyExample.Projeto3_Java_Spring.services.exception.ObjectNotFoundExcep
 @Service
 public class UserService {
 
-	//Declarando "injeção de dependência" para o recurso
 	@Autowired
 	private UserRepository repository;
 	
 	
-	//Declarando endpoints
 	
 	public List<User> findAll(){
 		return repository.findAll();
@@ -32,20 +30,16 @@ public class UserService {
 	
 	
 	
-	//Implementando operações básicas de CRUD
 	
-	//Inserindo usuários - INSERT
 	public User insert(User obj) {
 		return repository.insert(obj);
 	}
 	
-	//Deletando usuários - DELETE
 	public void delete(String id) {
 		findById(id);
 		repository.deleteById(id);
 	}
 	
-	//Atualizando usuários - UPDATE
 	public User update(User obj) {
 		User newObj = findById(obj.getId());
 		updateData(newObj, obj);
@@ -60,7 +54,7 @@ public class UserService {
 	
 	
 	
-	//Método que "pega" um DTO ('objDTO') e instancia um usuário
+	// rebuilds a User from the DTO the client sent
 	public User fromDTO(UserDTO objDTO) {
 		return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
 	}
