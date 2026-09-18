@@ -14,13 +14,11 @@ import com.MyExample.Projeto3_Java_Spring.services.exception.ObjectNotFoundExcep
 @Service
 public class PostService {
 
-	//Declarando "injeção de dependência"
 	
 	@Autowired
 	private PostRepository repository;
 	
 	
-	//Declarando endpoints
 	
 	public Post findById(String id) {
 		Optional<Post> obj = repository.findById(id);

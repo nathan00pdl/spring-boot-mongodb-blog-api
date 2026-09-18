@@ -28,15 +28,9 @@ public class UserResource {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<UserDTO>> findAll(){
 		
-		//(TESTE)
-		//Instanciando usuários de forma manual, para poder fazer a requisição no Postman 
-		//User maria = new User("1", "Maria Brown", "ma@gmail.com");
-		//List<User> list = new ArrayList<>();
-		//list.addAll(Arrays.asList(maria));
-		//return ResponseEntity.ok().body(list);
 		
 		List<User> list = service.findAll();
-		List<UserDTO> listDTO = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());  //Conversão de cada elemento da lista 'list' em um elemento do tipo DTO
+		List<UserDTO> listDTO = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
@@ -56,7 +50,6 @@ public class UserResource {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable String id){
-		//Recuperando usuários direto do MongoDB pelo id
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
